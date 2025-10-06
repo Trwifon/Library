@@ -20,5 +20,7 @@ jobs:
         cache: 'npm'
     - name: Execute npm ci
       run: npm ci
+    - name: execute playwrigt
+      run: npx playright install
     - name: Execute tests
       run: npm test
