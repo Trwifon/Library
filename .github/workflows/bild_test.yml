@@ -7,6 +7,24 @@ on:
     branches: [ "main" ]
 
 jobs:
+  build_server:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Repo checkout
+      uses: actions/checkout@v4
+    - name: Use Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+    - name: Execute npm ci
+      run: npm ci
+    - name: start server
+      run: npm start
+    - name: Execute tests
+      run: npm test
+
   build_test:
     runs-on: ubuntu-latest
 
@@ -20,7 +38,5 @@ jobs:
         cache: 'npm'
     - name: Execute npm ci
       run: npm ci
-    - name: execute playwrigt
-      run: npm start
     - name: Execute tests
-      run: npm test
+      run: npm test      
