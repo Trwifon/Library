@@ -21,6 +21,6 @@ jobs:
     - name: Execute npm ci
       run: npm ci
     - name: execute playwrigt
-      run:  npm init playwright@latest
+      run: npm start
     - name: Execute tests
       run: npm test
