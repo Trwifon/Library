@@ -21,7 +21,6 @@ jobs:
     - name: Execute npm ci
       run: npm ci
     - name: execute playwrigt
-      run: npx playright install
-           npm init playwright@latest
+      run:  npm init playwright@latest
     - name: Execute tests
       run: npm test
