@@ -21,9 +21,9 @@ jobs:
     - name: Execute npm ci
       run: npm ci
     - name: start server-be
-      run: npm run server-be
+      run: npm run server-be &
     - name: start server-fe
-      run: npm run server-fe
+      run: npm run server-fe &
     - name: Execute tests
       run: npm test
 
