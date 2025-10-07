@@ -1,6 +1,6 @@
 import * as api from './api.js';
 
-const host = 'http://localhost:3030'
+const host = api.settings.post;
 api.settings.host = 'http://localhost:3030';
 
 export const login = api.login;
