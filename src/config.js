@@ -1,1 +1,1 @@
-export const settings = { host:'https://library-ydom.onrender.com'}
+export const settings = { host:'https://library-ydom.onrender.com'};
