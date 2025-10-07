@@ -24,6 +24,8 @@ jobs:
       run: npm run server-be &
     - name: start server-fe
       run: npm run server-fe &
+    - name: install playwright browser
+      run: npx playwright install
     - name: Execute tests
       run: npm test
 
