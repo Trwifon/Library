@@ -28,3 +28,20 @@ jobs:
       run: npx playwright install
     - name: Execute tests
       run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build_test
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Deploy to production server-be
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.BE_API_KEY }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
+      - name: Deploy to production server-fe
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.FE_API_KEY }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
