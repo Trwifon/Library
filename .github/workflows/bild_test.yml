@@ -20,6 +20,8 @@ jobs:
         cache: 'npm'
     - name: Execute npm ci
       run: npm ci
+    - name: Manualy update the config.js
+      run: echo "export const settings = { host:'https://localhost:3030'}:" > src/config.js 
     - name: start server-be
       run: npm run server-be &
     - name: start server-fe
