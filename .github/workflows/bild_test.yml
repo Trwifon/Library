@@ -20,24 +20,11 @@ jobs:
         cache: 'npm'
     - name: Execute npm ci
       run: npm ci
-    - name: start server
-      run: npm start
+    - name: start server-be
+      run: npm run server-be
+    - name: start server-fe
+      run: npm run server-fe
     - name: Execute tests
       run: npm test
 
-  build_test:
-    runs-on: ubuntu-latest
-    needs: build_server
-    
-    steps:
-    - name: Repo checkout
-      uses: actions/checkout@v4
-    - name: Use Node.js 20
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        cache: 'npm'
-    - name: Execute npm ci
-      run: npm ci
-    - name: Execute tests
-      run: npm test      
+
