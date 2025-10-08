@@ -28,7 +28,7 @@ jobs:
     - name: install playwright browser
       run: npx playwright install
     - name: Execute tests
-      run: npm test
+      run: npm run test
 
   deploy:
     runs-on: ubuntu-latest
