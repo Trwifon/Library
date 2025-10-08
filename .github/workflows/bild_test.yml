@@ -18,9 +18,9 @@ jobs:
       with:
         node-version: 20
     - name: Execute npm ci
-      run: npm install
+      run: npm ci
     - name: Manualy update the config.js
-      run: echo "export const settings = { host:'http://localhost:3030'};" > src/config.js 
+      run: echo "export const settings = { host:'https://localhost:3030' };" > src/config.js 
     - name: start server-be
       run: npm run server-be &
     - name: start server-fe
@@ -28,9 +28,9 @@ jobs:
     - name: install playwright browser
       run: npx playwright install
     - name: Execute tests
-      run: npm run test
+      run: npm test
 
-  deploy:
+  deploy-be:
     runs-on: ubuntu-latest
     needs: build_test
     if: github.ref == 'refs/heads/main'
@@ -41,6 +41,13 @@ jobs:
         with:
           service-id: ${{ secrets.BE_API_KEY }}
           api-key: ${{ secrets.MY_RENDER_API_KEY }}
+
+  deploy-fe:
+    runs-on: ubuntu-latest
+    needs: build_test
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
       - name: Deploy to production server-fe
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
