@@ -41,7 +41,6 @@ jobs:
         with:
           service_id: ${{ secrets.SERVICE_ID_BE }}
           api_key: ${{ secrets.MY_RENDER_API_KEY }}
-          wait_deploy: true
 
   deploy_fe:
     runs-on: ubuntu-latest
@@ -54,4 +53,3 @@ jobs:
         with:
           service_id: ${{ secrets.SERVICE_ID_FE }}
           api_key: ${{ secrets.MY_RENDER_API_KEY }}
-          wait_deploy: true
