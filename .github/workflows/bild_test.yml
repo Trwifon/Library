@@ -17,7 +17,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 20
-        cache: 'npm'
     - name: Execute npm ci
       run: npm ci
     - name: Manualy update the config.js
