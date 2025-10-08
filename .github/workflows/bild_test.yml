@@ -39,7 +39,7 @@ jobs:
       - name: Deploy to production server-be
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
-          service-id: ${{ secrets.BE_API_KEY }}
+          service-id: ${{ secrets.SERVICE_ID_BE }}
           api-key: ${{ secrets.MY_RENDER_API_KEY }}
 
   deploy-fe:
@@ -51,5 +51,5 @@ jobs:
       - name: Deploy to production server-fe
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
-          service-id: ${{ secrets.FE_API_KEY }}
+          service-id: ${{ secrets.SERVICE_ID_FE }}
           api-key: ${{ secrets.MY_RENDER_API_KEY }}
